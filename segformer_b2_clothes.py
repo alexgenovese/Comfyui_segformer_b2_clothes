@@ -20,8 +20,10 @@ if not os.path.exists(model_folder_path):
     # download it
     snapshot_download(
         repo_id="mattmdjaga/segformer_b2_clothes",
-        cache_dir=model_folder_path,
-        local_dir_use_symlinks=False
+        repo_type="model",
+        local_dir=model_folder_path,
+        local_dir_use_symlinks=False,
+        force_download=True
     )
 
 processor = SegformerImageProcessor.from_pretrained(model_folder_path)
