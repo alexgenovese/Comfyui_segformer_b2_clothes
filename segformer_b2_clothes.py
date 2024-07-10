@@ -10,11 +10,11 @@ import torch
 from huggingface_hub import snapshot_download
 
 comfy_path = os.path.dirname(folder_paths.__file__)
-custom_nodes_path = os.path.join(comfy_path, "custom_nodes")
+models_path = os.path.join(comfy_path, "models")
 
 
 # 指定本地分割模型文件夹的路径
-model_folder_path = os.path.join(custom_nodes_path,"Comfyui_segformer_b2_clothes","checkpoints","segformer_b2_clothes")
+model_folder_path = os.path.join(models_path,"clothes","segformer_b2_clothes")
 
 if not os.path.exists(model_folder_path): 
     # download it
