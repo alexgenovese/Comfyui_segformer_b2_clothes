@@ -8,13 +8,30 @@ from PIL import Image,ImageOps, ImageFilter
 import torch.nn as nn
 import torch
 
+from huggingface_hub import snapshot_download
+
+comfy_path = os.path.dirname(folder_paths.__file__)
+models_path = os.path.join(comfy_path, "models")
+
 # comfy_path = os.path.dirname(folder_paths.__file__)
 # custom_nodes_path = os.path.join(comfy_path, "custom_nodes")
 
 
 # 指定本地分割模型文件夹的路径
 # model_folder_path = os.path.join(custom_nodes_path,"Comfyui_segformer_b2_clothes","checkpoints","segformer_b3_fashion")
-model_folder_path = os.path.join(folder_paths.models_dir,"segformer_b3_fashion")
+# model_folder_path = os.path.join(folder_paths.models_dir,"segformer_b3_fashion")
+model_folder_path = os.path.join(models_path,"clothes","segformer_b3_fashion")
+
+
+if not os.path.exists(model_folder_path): 
+    # download it
+    snapshot_download(
+        repo_id="sayeed99/segformer-b3-fashion",
+        repo_type="model",
+        local_dir=model_folder_path,
+        local_dir_use_symlinks=False,
+        force_download=True
+    )
 
 processor = SegformerImageProcessor.from_pretrained(model_folder_path)
 model = AutoModelForSemanticSegmentation.from_pretrained(model_folder_path)
