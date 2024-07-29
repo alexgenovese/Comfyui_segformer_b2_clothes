@@ -24,6 +24,7 @@ model_folder_path = os.path.join(models_path,"clothes","segformer_b3_fashion")
 
 
 if not os.path.exists(model_folder_path): 
+    print(f"Segformer B3 | Downloading Weights in {models_path}")
     # download it
     snapshot_download(
         repo_id="sayeed99/segformer-b3-fashion",
@@ -32,6 +33,7 @@ if not os.path.exists(model_folder_path):
         local_dir_use_symlinks=False,
         force_download=True
     )
+    print(f"Segformer B2 | Downloaded Successfully")
 
 processor = SegformerImageProcessor.from_pretrained(model_folder_path)
 model = AutoModelForSemanticSegmentation.from_pretrained(model_folder_path)
