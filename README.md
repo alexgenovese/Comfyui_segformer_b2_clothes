@@ -1,4 +1,11 @@
-# comfyui_segformer_b2_clothes
+# comfyui_segformer_b2_clothes 
+
+This is an update of the original repo. I added: 
+- Download weights in case not found
+- Moved the folder into Models/Clothes
+
+  ----
+
 SegFormer model fine-tuned on ATR dataset for clothes segmentation but can also be used for human segmentation!
 
 install:
