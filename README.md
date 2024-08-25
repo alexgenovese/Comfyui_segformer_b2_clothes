@@ -1,3 +1,18 @@
+# ComfyUI Segformer b2 Clothes node for Comfydeploy.com
+
+## I edited this node to make it work perfectly for Comfydeploy.com 
+
+Once the node starts, check if there are the weights in the model/clothes folder instead of its local. If not found, it download them the first time to that path.
+
+## Below are the steps: 
+
+– edit the config JSON of the machine
+- add this node and its hash
+- go into your account and click on Storage
+- create the folder structure below:
+- clothes/segformer_b2_clothes and clothes/segformer_b3_fashion
+
+
 # comfyui_segformer_b2_clothes 
 
 This is an update of the original repo. I added: 
